@@ -116,12 +116,6 @@ public class newA extends Activity implements OnClickListener {
 		        if(!this.isCancelled()) {
 		        	publishProgress(num_runs, (int) time_passed);
 		        }
-		        
-//		        try {
-//					Thread.sleep(2000);
-//				} catch (InterruptedException e) {
-//					Log.e(TAG, e.toString());
-//				}
 			}
 			return null;
 		}
@@ -175,15 +169,14 @@ public class newA extends Activity implements OnClickListener {
             
 	        long ms_before = SystemClock.uptimeMillis();
 	        
-	        // Execute HTTP Post Request
-            httpclient.execute(httppost);
+            // Execute HTTP Post Request
+            HttpResponse response = httpclient.execute(httppost);
             
 	        long ms_after = SystemClock.uptimeMillis();
 	        time_passed = ms_after - ms_before;
 	        
-            //resp = response.toString();
+            resp = response.toString();
             
-//            Log.i(TAG, "http post response is: " + response.toString());
             
         } catch (ClientProtocolException e) {
         	Log.e(TAG,e.toString());
@@ -193,7 +186,7 @@ public class newA extends Activity implements OnClickListener {
 
 		Log.i(TAG, "RTT inside post-data: " + time_passed);
 		
-		//Log.i(TAG, resp.toString());
+		Log.i(TAG, resp.toString());
     } 
     
 }    
